@@ -1,0 +1,14 @@
+[
+  {
+    "file1Path": "ExportedMonitors\\CertificateExpiration.json",
+    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\v1\\SkypeCoreBroker_CertificateValidation_CertificateExpiration.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorReports.json",
+    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\v1\\SkypeCoreBroker_MdmQos_MonitorReports.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\ProdCommunicationServiceResourceCreationFailures5xx.json",
+    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\v2\\monitor_Communication_Service_Resource_Creation_Failures.json"
+  }
+]

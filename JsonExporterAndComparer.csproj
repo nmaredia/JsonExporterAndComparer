@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Cloud.Metrics.Client" Version="2.2023.1219.47" />
+    <PackageReference Include="Microsoft.Health.Client" Version="1.1.249" />
+    <PackageReference Include="Microsoft.M365.ConfigManagement.SAGE" Version="4.0.0" />
+  </ItemGroup>
+
+</Project>

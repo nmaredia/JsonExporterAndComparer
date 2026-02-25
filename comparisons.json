@@ -1,14 +1,22 @@
 [
   {
     "file1Path": "ExportedMonitors\\CertificateExpiration.json",
-    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\v1\\SkypeCoreBroker_CertificateValidation_CertificateExpiration.json"
+    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\Monitors\\SkypeCoreBroker_CertificateValidation_CertificateExpiration.json"
   },
   {
     "file1Path": "ExportedMonitors\\MonitorReports.json",
-    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\v1\\SkypeCoreBroker_MdmQos_MonitorReports.json"
+    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\Monitors\\SkypeCoreBroker_MdmQos_MonitorReports.json"
   },
   {
     "file1Path": "ExportedMonitors\\ProdCommunicationServiceResourceCreationFailures5xx.json",
-    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\v2\\monitor_Communication_Service_Resource_Creation_Failures.json"
+    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\MonitorsV2\\monitor_Communication_Service_Resource_Creation_Failures.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MeterNotFound.json",
+    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\MonitorsV2\\meter_not_found.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\RPCPUUsagePPE.json",
+    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\MonitorsV2\\monitor_cpu_usage.json"
   }
 ]

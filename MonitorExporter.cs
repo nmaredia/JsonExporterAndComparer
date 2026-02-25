@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
 
 namespace Test.Monitors16;
 
@@ -267,6 +268,12 @@ public static class MonitorExporter
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             WriteIndented = true,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            Converters = 
+            {
+                new FlattenAdditionalPropertiesConverter(),
+                new PolymorphicCollectionConverter()
+            }
         };
 
         // Find all IMonitorProvider implementations in the loaded assembly
@@ -357,7 +364,7 @@ public static class MonitorExporter
                     string fileName = $"{provider.Name}.json";
                     string filePath = Path.Combine(outputDirectory, fileName);
 
-                    string json = JsonSerializer.Serialize(monitorConfig, options);
+                    string json = JsonSerializer.Serialize(monitorConfig, monitorConfig.GetType(), options);
                     File.WriteAllText(filePath, json);
 
                     Console.WriteLine($"      ✓ Exported: {fileName} ({json.Length} bytes)");
@@ -385,6 +392,20 @@ public static class MonitorExporter
         Console.WriteLine($"✅ Successfully exported {exportedCount} monitor(s) to '{Path.GetFullPath(outputDirectory)}'");
     }
 
+    /// <summary>
+    /// Configures polymorphic serialization for collections.
+    /// </summary>
+    private static void AddPolymorphicSerialization(JsonTypeInfo typeInfo)
+    {
+        if (typeInfo.Kind == JsonTypeInfoKind.Object)
+        {
+            typeInfo.PolymorphismOptions = new JsonPolymorphismOptions
+            {
+                IgnoreUnrecognizedTypeDiscriminators = true,
+                UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToBaseType
+            };
+        }
+    }
     /// <summary>
     /// Compares two JSON files and displays all differences.
     /// </summary>
@@ -482,6 +503,35 @@ public static class MonitorExporter
                                      && !t.IsAbstract)!;
         }
     }
+
+    /// <summary>
+    /// Modifies serialization to flatten AdditionalProperties to parent level.
+    /// </summary>
+    private static void ApplyAdditionalPropertiesConverter(JsonTypeInfo typeInfo)
+    {
+        if (typeInfo.Kind != JsonTypeInfoKind.Object)
+            return;
+
+        // Find and mark AdditionalProperties property
+        foreach (var property in typeInfo.Properties)
+        {
+            if (property.Name.Equals("additionalProperties", StringComparison.OrdinalIgnoreCase))
+            {
+                // Exclude from normal serialization - we'll handle it manually
+                property.ShouldSerialize = (obj, value) => false;
+            }
+        }
+
+        // Store original serialization action
+        var originalOnSerialized = typeInfo.OnSerializing;
+
+        // Override to add manual serialization logic
+        typeInfo.OnSerializing = (obj) =>
+        {
+            originalOnSerialized?.Invoke(obj);
+            // Custom serialization will be handled by a specialized converter
+        };
+    }
 }
 /// <summary>
 /// Represents a pair of files to compare.
@@ -493,4 +543,194 @@ public class FileComparisonPair
 
     [JsonPropertyName("file2Path")]
     public string File2Path { get; set; } = string.Empty;
+}
+
+/// <summary>
+/// Converter that serializes collection items using their actual runtime type.
+/// </summary>
+public class PolymorphicCollectionConverter : JsonConverterFactory
+{
+    public override bool CanConvert(Type typeToConvert)
+    {
+        // Skip strings
+        if (typeToConvert == typeof(string))
+            return false;
+
+        // Skip dictionaries - they should serialize normally or be handled by FlattenAdditionalPropertiesConverter
+        if (typeToConvert.IsGenericType)
+        {
+            var genericDef = typeToConvert.GetGenericTypeDefinition();
+            if (genericDef == typeof(Dictionary<,>) || genericDef == typeof(IDictionary<,>))
+                return false;
+        }
+
+        // Handle any other type that implements IEnumerable
+        return typeof(System.Collections.IEnumerable).IsAssignableFrom(typeToConvert);
+    }
+
+    public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
+    {
+        // Get the element type
+        Type? elementType = null;
+
+        if (typeToConvert.IsArray)
+        {
+            elementType = typeToConvert.GetElementType();
+        }
+        else if (typeToConvert.IsGenericType)
+        {
+            elementType = typeToConvert.GetGenericArguments()[0];
+        }
+
+        if (elementType == null)
+        {
+            // Fallback for non-generic IEnumerable
+            elementType = typeof(object);
+        }
+
+        Type converterType = typeof(PolymorphicCollectionConverterInner<>).MakeGenericType(elementType);
+        return (JsonConverter)Activator.CreateInstance(converterType)!;
+    }
+
+    private class PolymorphicCollectionConverterInner<T> : JsonConverter<System.Collections.IEnumerable>
+    {
+        public override System.Collections.IEnumerable? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            throw new NotImplementedException("Deserialization not supported");
+        }
+
+        public override void Write(Utf8JsonWriter writer, System.Collections.IEnumerable value, JsonSerializerOptions options)
+        {
+            writer.WriteStartArray();
+
+            foreach (var item in value)
+            {
+                if (item == null)
+                {
+                    writer.WriteNullValue();
+                }
+                else
+                {
+                    // Get the actual runtime type
+                    Type itemType = item.GetType();
+
+                    // Serialize using the actual runtime type
+                    // This will recursively handle nested collections and objects
+                    JsonSerializer.Serialize(writer, item, itemType, options);
+                }
+            }
+
+            writer.WriteEndArray();
+        }
+
+        public override bool CanConvert(Type typeToConvert)
+        {
+            return typeToConvert != typeof(string) &&
+                   typeof(System.Collections.IEnumerable).IsAssignableFrom(typeToConvert);
+        }
+    }
+}
+/// <summary>
+/// Converter that writes objects and flattens their AdditionalProperties and uxParameters dictionaries to the parent level.
+/// </summary>
+public class FlattenAdditionalPropertiesConverter : JsonConverter<object>
+{
+    private static readonly string[] PropertiesToFlatten = { "AdditionalProperties" };
+
+    public override bool CanConvert(Type typeToConvert)
+    {
+        // Check if type has any of the properties to flatten
+        foreach (var propName in PropertiesToFlatten)
+        {
+            var prop = typeToConvert.GetProperty(propName,
+                BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
+
+            if (prop != null)
+            {
+                var propType = prop.PropertyType;
+                if (propType.IsGenericType)
+                {
+                    var genericDef = propType.GetGenericTypeDefinition();
+                    if (genericDef == typeof(Dictionary<,>) || genericDef == typeof(IDictionary<,>))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public override object? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        throw new NotImplementedException("Deserialization not supported");
+    }
+
+    public override void Write(Utf8JsonWriter writer, object value, JsonSerializerOptions options)
+    {
+        if (value == null)
+        {
+            writer.WriteNullValue();
+            return;
+        }
+
+        writer.WriteStartObject();
+
+        var type = value.GetType();
+        var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+        var propsToFlatten = new List<IDictionary<string, object>>();
+
+        // First pass: write all regular properties and collect properties to flatten
+        foreach (var prop in properties)
+        {
+            // Check if this is a property to flatten
+            if (PropertiesToFlatten.Any(name => prop.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+            {
+                // Store for later flattening
+                var propValue = prop.GetValue(value);
+                if (propValue is IDictionary<string, object> dict)
+                {
+                    propsToFlatten.Add(dict);
+                }
+                continue;
+            }
+
+            // Write regular property
+            var propName = options.PropertyNamingPolicy?.ConvertName(prop.Name) ?? prop.Name;
+            writer.WritePropertyName(propName);
+
+            var propVal = prop.GetValue(value);
+            if (propVal == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                JsonSerializer.Serialize(writer, propVal, propVal.GetType(), options);
+            }
+        }
+
+        // Second pass: write all flattened properties at same level
+        foreach (var flattenedProps in propsToFlatten)
+        {
+            foreach (var kvp in flattenedProps)
+            {
+                var propName = options.PropertyNamingPolicy?.ConvertName(kvp.Key) ?? kvp.Key;
+                writer.WritePropertyName(propName);
+
+                if (kvp.Value == null)
+                {
+                    writer.WriteNullValue();
+                }
+                else
+                {
+                    JsonSerializer.Serialize(writer, kvp.Value, kvp.Value.GetType(), options);
+                }
+            }
+        }
+
+        writer.WriteEndObject();
+    }
 }

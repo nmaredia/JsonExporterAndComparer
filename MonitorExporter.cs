@@ -268,7 +268,7 @@ public static class MonitorExporter
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             WriteIndented = true,
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            //DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
             Converters = 
             {
                 new FlattenAdditionalPropertiesConverter(),
@@ -341,16 +341,19 @@ public static class MonitorExporter
                     var getV2Method = monitorType.GetMethod("GetMonitorConfigurationV2");
 
                     object? monitorConfig = null;
+                    string subFolder = "";
 
                     if (getV1Method != null)
                     {
                         monitorConfig = getV1Method.Invoke(monitor, null);
+                        subFolder = "Monitors"; // V1 monitors go in Monitors folder
                         Console.WriteLine($"      GetMonitorConfigurationV1: {(monitorConfig != null ? "✓ Found" : "null")}");
                     }
 
                     if (monitorConfig == null && getV2Method != null)
                     {
                         monitorConfig = getV2Method.Invoke(monitor, null);
+                        subFolder = "MonitorsV2"; // V2 monitors go in MonitorsV2 folder
                         Console.WriteLine($"      GetMonitorConfigurationV2: {(monitorConfig != null ? "✓ Found" : "null")}");
                     }
 
@@ -360,10 +363,13 @@ public static class MonitorExporter
                         continue;
                     }
 
+                    // Create subfolder structure
+                    string targetDirectory = Path.Combine(outputDirectory, subFolder);
+                    Directory.CreateDirectory(targetDirectory);
+
                     // Use the provider class name as the file name
                     string fileName = $"{provider.Name}.json";
-                    string filePath = Path.Combine(outputDirectory, fileName);
-
+                    string filePath = Path.Combine(targetDirectory, fileName);
                     string json = JsonSerializer.Serialize(monitorConfig, monitorConfig.GetType(), options);
                     File.WriteAllText(filePath, json);
 
@@ -502,36 +508,7 @@ public static class MonitorExporter
                                      && !t.IsInterface
                                      && !t.IsAbstract)!;
         }
-    }
-
-    /// <summary>
-    /// Modifies serialization to flatten AdditionalProperties to parent level.
-    /// </summary>
-    private static void ApplyAdditionalPropertiesConverter(JsonTypeInfo typeInfo)
-    {
-        if (typeInfo.Kind != JsonTypeInfoKind.Object)
-            return;
-
-        // Find and mark AdditionalProperties property
-        foreach (var property in typeInfo.Properties)
-        {
-            if (property.Name.Equals("additionalProperties", StringComparison.OrdinalIgnoreCase))
-            {
-                // Exclude from normal serialization - we'll handle it manually
-                property.ShouldSerialize = (obj, value) => false;
-            }
-        }
-
-        // Store original serialization action
-        var originalOnSerialized = typeInfo.OnSerializing;
-
-        // Override to add manual serialization logic
-        typeInfo.OnSerializing = (obj) =>
-        {
-            originalOnSerialized?.Invoke(obj);
-            // Custom serialization will be handled by a specialized converter
-        };
-    }
+    }  
 }
 /// <summary>
 /// Represents a pair of files to compare.

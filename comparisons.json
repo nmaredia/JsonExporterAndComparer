@@ -1,13 +1,67 @@
 [
   {
-    "file1Path": "ExportedMonitors\\CertificateExpiration.json",
-    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\Monitors\\SkypeCoreBroker_CertificateValidation_CertificateExpiration.json"
+    "file1Path": "ExportedMonitors\\Monitors\\CertificateExpiration.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\CertificateValidation\\SkypeCoreBroker_CertificateValidation_CertificateExpiration.json"
   },
   {
-    "file1Path": "ExportedMonitors\\MonitorReports.json",
-    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\Monitors\\SkypeCoreBroker_MdmQos_MonitorReports.json"
+    "file1Path": "ExportedMonitors\\Monitors\\MonitorReports.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\MdmQos\\SkypeCoreBroker_MdmQos_MonitorReports.json"
   },
   {
+    "file1Path": "ExportedMonitors\\Monitors\\ClientAggregatedMetricCount.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\MdmQos\\SkypeCoreBroker_MdmQos_ClientAggregatedMetricCount.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\COSMICContainersTotalCPULimitUtilization.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\SystemCounters\\SkypeCoreBroker_SystemCounters_^COSMIC Containers(total)^% CPU Limit Utilization.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\COSMICContainersTotalMemoryLimitUtilization.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\SystemCounters\\SkypeCoreBroker_SystemCounters_^COSMIC Containers(total)^% Memory Limit Utilization.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\MemoryAvailableMBytes.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\SystemCounters\\SkypeCoreBroker_SystemCounters_^Memory^Available MBytes.json"
+  },
+
+
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\MicrosoftAspNetCoreHostingRequestsPerSecond.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\SystemCounters\\SkypeCoreBroker_SystemCounters_Microsoft.AspNetCore.Hosting^requests-per-second.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\MStoreActiveTimeSeriesCount.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\MdmQos\\SkypeCoreBroker_MdmQos_MStoreActiveTimeSeriesCount.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\ProcessorTotalProcessorTime.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\SystemCounters\\SkypeCoreBroker_SystemCounters_^Processor(_Total)^% Processor Time.json"
+  },
+
+
+
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\PublishedTimeSeriesCount.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\MdmQos\\SkypeCoreBroker_MdmQos_PublishedTimeSeriesCount.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\RoleStart.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\Lifecycle\\SkypeCoreBroker_Lifecycle_RoleStart.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\TooManyPendingPublishedMessages.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\PubSubMetrics\\SkypeCoreBroker_PubSubMetrics_TooManyPendingPublishedMessages.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\Monitors\\UnhandledException.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\Exceptions\\SkypeCoreBroker_Exceptions_UnhandledException.json"
+  }
+
+  /*{
     "file1Path": "ExportedMonitors\\ProdCommunicationServiceResourceCreationFailures5xx.json",
     "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\MonitorsV2\\monitor_Communication_Service_Resource_Creation_Failures.json"
   },
@@ -18,5 +72,5 @@
   {
     "file1Path": "ExportedMonitors\\RPCPUUsagePPE.json",
     "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\MonitorsV2\\monitor_cpu_usage.json"
-  }
+  }*/
 ]

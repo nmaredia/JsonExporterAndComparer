@@ -24,8 +24,6 @@
     "file1Path": "ExportedMonitors\\Monitors\\MemoryAvailableMBytes.json",
     "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\SystemCounters\\SkypeCoreBroker_SystemCounters_^Memory^Available MBytes.json"
   },
-
-
   {
     "file1Path": "ExportedMonitors\\Monitors\\MicrosoftAspNetCoreHostingRequestsPerSecond.json",
     "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\SystemCounters\\SkypeCoreBroker_SystemCounters_Microsoft.AspNetCore.Hosting^requests-per-second.json"
@@ -39,9 +37,6 @@
     "file1Path": "ExportedMonitors\\Monitors\\ProcessorTotalProcessorTime.json",
     "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\SystemCounters\\SkypeCoreBroker_SystemCounters_^Processor(_Total)^% Processor Time.json"
   },
-
-
-
   {
     "file1Path": "ExportedMonitors\\Monitors\\PublishedTimeSeriesCount.json",
     "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\MdmQos\\SkypeCoreBroker_MdmQos_PublishedTimeSeriesCount.json"
@@ -59,18 +54,165 @@
   {
     "file1Path": "ExportedMonitors\\Monitors\\UnhandledException.json",
     "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\Monitors\\Exceptions\\SkypeCoreBroker_Exceptions_UnhandledException.json"
-  }
+  },
 
-  /*{
-    "file1Path": "ExportedMonitors\\ProdCommunicationServiceResourceCreationFailures5xx.json",
-    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\MonitorsV2\\monitor_Communication_Service_Resource_Creation_Failures.json"
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\BuildAge.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\0acab8bb-df67-4bd5-9c4a-445ea382bfa6.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\ApiInvalidOperationExceptions.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\e273d220-2f66-4dd9-9344-39825cb4766e.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\ApiObjectDisposedExceptions.json",
+    "file2Path": "C:\\\\Users\\\\nmaredia\\\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\c35a16c9-4254-4347-bbac-cbff492e644f.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\APIReliability.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\54f74d71-91d8-4802-baad-ee9d3e79f20c.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\APIReliabilityLongTerm.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\1f39341a-ca40-4892-bf1b-2253475faf6e.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\APIRequestAbortedResponses.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\ba3041cf-5105-4bcf-9ccc-e4345b389307.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\APIUnexpectedExceptionResponses.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\17c0dfd2-3777-4b75-9bb4-660fcdb3e950.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\AuthNauthZ.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\c77b3387-5257-44ee-be5d-c74a7fb484c9.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\BrokerBuildAgeSovereign.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\7417a4ec-3523-47cc-aa05-3e01b9589549.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\BrokerProxyReliability.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\8e97a438-b909-49be-93ff-cf1553d9e95c.json"
   },
   {
-    "file1Path": "ExportedMonitors\\MeterNotFound.json",
-    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\MonitorsV2\\meter_not_found.json"
+    "file1Path": "ExportedMonitors\\MonitorsV2\\BrokerReliabilitySHRv2.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\d8d7a6b4-c88f-49a4-b83f-77df96a47816.json"
+  },
+
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\CosmicHeadlessServiceQueryFailure.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\5fc425ad-a72e-422e-9b27-5e8c5c16f021.json"
   },
   {
-    "file1Path": "ExportedMonitors\\RPCPUUsagePPE.json",
-    "file2Path": "C:\\Users\\nmaredia\\stdzn-lib\\dev\\core\\Extension\\MacConverter\\sample\\MonitorsV2\\monitor_cpu_usage.json"
-  }*/
+    "file1Path": "ExportedMonitors\\MonitorsV2\\CosmicReliability.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\dcd81d15-e67d-4fc5-9434-436ecafe99c2.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\CosmicTrafficShareSwitch.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\d70e83f1-9d7b-4c92-ba1e-ef65c2aa703d.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\CPUAboveThresholdPerCluster.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\5f9ed19c-f227-4ded-83e3-22e9c89d9bbc.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\CPUAboveThresholdPerInstance.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\3d39739c-7920-40b0-8686-839a249f36b4.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\CPUAboveThresholdPerInstanceCosmic.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\edc1e2b5-fd65-4118-8a7b-d383e11be34d.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\CPUAboveThresholdPerTenantCosmic.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\476344f0-1fe3-4065-86ad-9c1df97d942d.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\CPUReaching100Percent.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\ecc5dd41-eeb8-417c-918d-63335ce599b1.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\CredScanRedaction.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\6e03970a-905e-40c4-9647-42a35fbfa5c5.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\DnsClientCacheMapSizeExceedsLimitEarlyWarning.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\f390a099-0b93-4e8b-ba43-de7045c6951d.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\ECSConfigFetchFailures.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\f7678f28-b8f8-43d7-9df1-d8a455df93a3.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\HighHttp2FaultyCount.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\30f6e942-7757-43b6-a916-d499e6aa125d.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\HighNETThreadPoolCount.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\972bbd0a-536d-4c08-b15c-548f773de4ea.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\IncreasedTimeToValidateCertificates.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\083e3605-34f2-4352-95f3-ab12f160e07d.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\LogsAreMissing.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\d93022fd-1e31-4648-8283-1388b10fb1b5.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\LongRunningMemoryBelowThreshold.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\084d38ec-a236-49af-a3f6-4be0b37006a5.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\LongRunningMemoryBelowThresholdCosmic.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\d05fd6e9-3722-43c7-879e-9f3ef4d4990c.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\NoDnsClientCachePluginFailures.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\20199d01-1f05-4b28-a84f-727028456d50.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\RequestQueueDuration.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\5792fa08-9fee-499d-8f93-e0a911e48c50.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\RequestQueueLength.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\b7fa144f-a4a8-4b78-90d6-ab43cc9f5538.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\STDZNSkypeCoreBrokerExcessiveContainerCPUUtilization.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\ac3c0759-1733-a53a-0591-e181c43ac275.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\STDZNSkypeCoreBrokerExcessiveContainerMemoryUtilization.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\84c1a029-1df2-c9f5-4e40-eee41a5f6b57.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\STDZNSkypeCoreBrokerHighContainerCPUUtilization.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\2b77c8d0-8007-73d5-bc24-86abd38ed0e4.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\STDZNSkypeCoreBrokerHighContainerMemoryUtilization.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\29e1acee-e6c6-4ad3-0a46-3587c43d1b86.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\ToManyThrottledBrokerRequests.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\645f2915-81bc-42de-83ec-322dfcc02e02.json"
+  },
+  {
+    "file1Path": "ExportedMonitors\\MonitorsV2\\TooMany401403StatusCodes.json",
+    "file2Path": "C:\\Users\\nmaredia\\sync_calling_concore-broker-geneva\\SkypeCoreBroker\\MonitorsV2\\9de5f9b6-cd9d-43da-a5bc-c7328ac507ae.json"
+  }
 ]

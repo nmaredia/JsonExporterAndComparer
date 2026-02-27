@@ -268,7 +268,7 @@ public static class MonitorExporter
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             WriteIndented = true,
-            //DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            TypeInfoResolver = new DefaultJsonTypeInfoResolver(),
             Converters = 
             {
                 new FlattenAdditionalPropertiesConverter(),
